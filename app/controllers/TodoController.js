@@ -12,7 +12,7 @@ export class TodoController {
   constructor() {
     console.log("TODO CONTROLLER IS HERE")
     AppState.on('identity', this.getTodos)
-
+    AppState.on('todos', this.drawTodosList)
   }
 
   async getTodos() {
@@ -22,5 +22,13 @@ export class TodoController {
       Pop.error(error, 'Could not get Todos!')
       console.error('getTodos failed', error);
     }
+  }
+
+  drawTodosList() {
+    const todos = AppState.todos
+    let todosContent = ''
+    todos.forEach(todo => todosContent += todo.todoHTMLTemplate)
+    const todoElem = document.getElementById('todo-body')
+    todoElem.innerHTML = todosContent
   }
 }

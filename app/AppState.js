@@ -1,6 +1,6 @@
 import { Identity } from './Auth/Identity.js'
 import { Image } from './models/ImagesModel.js'
-import { Quotes } from './models/QuotesModel.js'
+import { Quote } from './models/QuotesModel.js'
 import { ToDo } from './models/TodoModel.js'
 import { Weather } from './models/WeatherModel.js'
 import { EventEmitter } from './utils/EventEmitter.js'
@@ -13,10 +13,10 @@ class ObservableAppState extends EventEmitter {
   /**@type {Identity} */
   identity = null
 
-  /**@type {ToDo} */
-  todo = null
+  /**@type {ToDo[]} */
+  todos = []
 
-  /**@type {Quotes} */
+  /**@type {Quote} */
   quotes = null
 
   /**@type {Image} */

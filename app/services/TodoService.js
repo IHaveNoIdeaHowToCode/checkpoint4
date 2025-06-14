@@ -10,6 +10,7 @@ class TodoService {
     console.log('GOT TODOS', response.data);
     const myTodos = response.data.map(pojo => new ToDo(pojo))
     logger.log('ToDo', myTodos)
+    AppState.todos = myTodos
   }
 }
 

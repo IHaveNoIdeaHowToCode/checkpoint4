@@ -3,6 +3,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #c4dadb;
 }
 
 main {
@@ -26,6 +27,12 @@ main {
 
 #todo-list {
   width: 30dvh;
-  font-size: 10px;
-  opacity: 0;
+  font-size: 20px;
 }
+
+/* #todo-body {
+  opacity: 0;
+  background-color: #1a1919;
+  border-radius: 10px;
+  border: 1px outset var(--bs-light);
+} */
