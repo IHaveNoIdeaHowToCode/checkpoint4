@@ -1,7 +1,3 @@
-
-
-
-
 import { AppState } from "../AppState.js"
 import { todoService } from "../services/TodoService.js"
 import { getFormData } from "../utils/FormHandler.js"
@@ -13,6 +9,7 @@ export class TodoController {
     console.log("TODO CONTROLLER IS HERE")
     AppState.on('identity', this.getTodos)
     AppState.on('todos', this.drawTodosList)
+    AppState.on('todos', this.drawIncompleteTodos)
   }
 
   async getTodos() {
@@ -30,5 +27,14 @@ export class TodoController {
     todos.forEach(todo => todosContent += todo.todoHTMLTemplate)
     const todoElem = document.getElementById('todo-body')
     todoElem.innerHTML = todosContent
+  }
+
+  drawIncompleteTodos() {
+    const todos = AppState.todos
+    const incompleteTodos = todos.filter(todo => !todo.isCompleted)
+    console.log("INCOMPLETE TODOS", incompleteTodos.length);
+    let count = incompleteTodos.length
+    const countElem = document.getElementById('todo-count')
+    countElem.innerText = `To Do: ${count}`
   }
 }

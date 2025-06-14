@@ -20,7 +20,7 @@ main {
   align-items: end;
 }
 
-#todo-count {
+#todo-button {
   display: flex;
   justify-content: flex-end;
 }
