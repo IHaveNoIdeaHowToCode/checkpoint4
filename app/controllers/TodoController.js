@@ -37,4 +37,30 @@ export class TodoController {
     const countElem = document.getElementById('todo-count')
     countElem.innerText = `To Do: ${count}`
   }
+
+  async submitTodo() {
+    try {
+      event.preventDefault()
+      const formElem = event.target
+      const todoFormData = getFormData(formElem)
+      console.log('Submitted Todo DATA', todoFormData);
+      await todoService.createTodo(todoFormData)
+    } catch (error) {
+      Pop.error(error, 'ERROR', 'Failed to create new Todo')
+      console.error('submitTodo failed', error)
+    }
+  }
+
+  async confirmDeleteTodo(todoID) {
+    const confirmed = await Pop.confirm('Are you sure you want to delete this Todo?')
+
+    if (!confirmed) { return }
+
+    try {
+      await todoService.deleteTodo(todoID)
+    } catch (error) {
+      Pop.error(error, 'ERROR', 'could not delete Todo!')
+      console.error('deleteTodo failed', error);
+    }
+  }
 }

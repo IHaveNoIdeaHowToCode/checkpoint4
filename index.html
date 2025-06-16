@@ -23,7 +23,7 @@
     <section class="container">
       <div id="todo-button" class="col-md-12 mt-3">
         <button id="show-todo-list" data-bs-toggle="offcanvas" data-bs-target="#todo-list" class="btn btn-outline-dark">
-          <div id="todo-count"></div>
+          <div id="todo-count">Login to see your Todo List!</div>
         </button>
       </div>
     </section>
@@ -33,7 +33,12 @@
     <div class="p-5 text-over-image">This is a test</div>
 
     <div id="todo-list" class="offcanvas offcanvas-end">
+      <form class="m-2" id="todo-form" onsubmit="app.todoController.submitTodo()">
+        <input type="text" name="description" placeholder="New Todo" required>
+        <button class="btn btn-outline-success" type="submit">Add Todo</button>
+      </form>
       <div id="todo-body" class="offcanvas-body">
+
         <section id="my-todos-list">
           <!-- <div class="d-flex gap-3">
             <input type="checkbox">
