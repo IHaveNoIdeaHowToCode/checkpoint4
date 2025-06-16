@@ -7,7 +7,8 @@ import { Pop } from "../utils/Pop.js"
 export class ImagesController {
   constructor() {
     console.log("IMAGES CONTROLLER IS HERE");
-    AppState.on('images', this.getRandomImage)
+    // FIXME pass your draw function to the observer here, not your get function
+    // AppState.on('images', this.getRandomImage)
     this.getRandomImage()
   }
 
@@ -15,13 +16,12 @@ export class ImagesController {
   async getRandomImage() {
     try {
       await imageService.getImages()
-      const randomIndex = Math.floor(Math.random() * images.length)
-      const randomImage = images[randomIndex]
-      console.log(randomImage);
     } catch (error) {
       console.error('COULD NOT GET IMAGE', error);
       Pop.error(error, 'COULD NOT GET IMAGES', 'WOOPS')
     }
   }
+
+  // TODO reference Nasa lecture for when mick draws the NASA picture
 
 }

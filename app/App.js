@@ -1,4 +1,5 @@
 import { AuthController } from "./Auth/AuthController.js"
+import { ClockController } from "./controllers/ClockController.js"
 import { ImagesController } from "./controllers/ImagesController.js"
 import { QuotesController } from "./controllers/QuotesController.js"
 import { TodoController } from "./controllers/TodoController.js"
@@ -13,15 +14,18 @@ class App {
   quotesController = new QuotesController()
   imagesController = new ImagesController()
   weatherController = new WeatherController()
+  clockController = new ClockController()
 }
 
-setInterval(function () {
-  const now = new Date();
-  const hours = now.getHours();
-  const minutes = now.getMinutes().toString().padStart(2, '0')
-  // console.log(document.getElementById('clock'))
-  document.getElementById('clock').innerText = `${hours}:${minutes}`;
-}, 1000);
+// REVIEW move this logic to a controller
+
+// // setInterval(function () {
+//   const now = new Date();
+//   //   // const hours = now.getHours();
+//   //   // const minutes = now.getMinutes().toString().padStart(2, '0')
+//   //   // console.log(document.getElementById('clock'))
+//   document.getElementById('clock').innerText = now.toLocaleTimeString();
+// }, 1000);
 
 window['app'] = new App()
 

@@ -73,4 +73,12 @@ export class TodoController {
       console.error('deleteTodo failed', error);
     }
   }
+
+  // setInterval() {
+  //   const now = new Date();
+  //   // const hours = now.getHours();
+  //   // const minutes = now.getMinutes().toString().padStart(2, '0')
+  //   // console.log(document.getElementById('clock'))
+  //   document.getElementById('clock').innerText = now.toLocaleTimeString(); 1000
+  // }
 }
