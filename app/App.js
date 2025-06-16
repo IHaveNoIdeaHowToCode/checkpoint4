@@ -14,7 +14,21 @@ class App {
   imagesController = new ImagesController()
   weatherController = new WeatherController()
 
+  // setInterval(function() {
+  //   const now = new Date();
+  //   const hours = now.getHours()
+  //   const minutes = now.getMinutes().toString()
+  //   document.getElementById('clock').innerText = `${hours}:${minutes}`
+  // }, 1000)
 }
+
+setInterval(function () {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes().toString().padStart(2, '0')
+  // console.log(document.getElementById('clock'))
+  document.getElementById('clock').innerText = `${hours}:${minutes}`;
+}, 1000);
 
 window['app'] = new App()
 
