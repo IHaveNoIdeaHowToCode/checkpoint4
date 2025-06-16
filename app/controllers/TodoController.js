@@ -51,6 +51,16 @@ export class TodoController {
     }
   }
 
+  async toggleTodoComplete(todoID) {
+    try {
+      console.log('Marking Complete', todoID);
+      await todoService.checkTodo(todoID)
+    } catch (error) {
+      Pop.error(error, 'Could not complete Todo', 'woops!')
+      console.error('toggleTodoComplete failed', error)
+    }
+  }
+
   async confirmDeleteTodo(todoID) {
     const confirmed = await Pop.confirm('Are you sure you want to delete this Todo?')
 

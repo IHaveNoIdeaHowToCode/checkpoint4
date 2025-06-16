@@ -21,6 +21,18 @@ class TodoService {
     AppState.todos.push(newTodo)
   }
 
+  async checkTodo(todoID) {
+    const todos = AppState.todos
+    const todoIndex = todos.findIndex(todo => todo.id == todoID)
+    const todoToCheck = todos[todoIndex]
+    const todoState = { completed: !todoToCheck.isCompleted }
+    const response = await api.put(`api/todos/${todoID}`, todoState)
+    console.log('UPDATE TODO', response.data);
+    const updatedTodo = new ToDo(response.data)
+    console.log('UPDATED TODO', updatedTodo);
+    todos.splice(todoIndex, 1, updatedTodo)
+  }
+
   async deleteTodo(todoID) {
     const response = api.delete(`api/todos/${todoID}`)
     console.log('Delete TODO', response.data);
