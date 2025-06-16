@@ -1,15 +1,17 @@
 import { AppState } from "../AppState.js"
+import { Image } from "../models/ImagesModel.js";
 import { imageService } from "../services/ImagesService.js"
 import { getFormData } from "../utils/FormHandler.js"
 import { Pop } from "../utils/Pop.js"
+import { setHTML } from "../utils/Writer.js";
 
 
 export class ImagesController {
   constructor() {
     console.log("IMAGES CONTROLLER IS HERE");
     // FIXME pass your draw function to the observer here, not your get function
-    // AppState.on('images', this.getRandomImage)
     this.getRandomImage()
+    AppState.on('images', this.drawImage)
   }
 
 
@@ -22,6 +24,12 @@ export class ImagesController {
     }
   }
 
-  // TODO reference Nasa lecture for when mick draws the NASA picture
+  async drawImage() {
+    const image = AppState.images
+    // setHTML('active-img', Image.)
+    document.body.style.backgroundImage = `url(${image.imgUrl.full})`
+    // TODO reference Nasa lecture for when mick draws the NASA picture
+
+  }
 
 }

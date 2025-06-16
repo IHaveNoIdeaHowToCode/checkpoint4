@@ -8,7 +8,11 @@ class ImageService {
   async getImages() {
     const response = await api.get('api/images')
     console.log('GOT IMAGES', response.data);
-    // FIXME you are not getting an array of images here, so you cannot use .map!!!
+    const img = new Image(response.data)
+    console.log('IMAGE IS HERE', img);
+
+    AppState.images = img
+    // REVIEW you are not getting an array of images here, so you cannot use .map!!!
     // const myImages = response.data.map(pojo => new Image(pojo))
     // logger.log('Image', myImages)
     // AppState.images = myImages
