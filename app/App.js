@@ -13,13 +13,6 @@ class App {
   quotesController = new QuotesController()
   imagesController = new ImagesController()
   weatherController = new WeatherController()
-
-  // setInterval(function() {
-  //   const now = new Date();
-  //   const hours = now.getHours()
-  //   const minutes = now.getMinutes().toString()
-  //   document.getElementById('clock').innerText = `${hours}:${minutes}`
-  // }, 1000)
 }
 
 setInterval(function () {
