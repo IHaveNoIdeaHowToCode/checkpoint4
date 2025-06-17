@@ -33,6 +33,12 @@ main {
 
 #clock {
   opacity: 0.8;
+  text-align: center;
+}
+
+#quote {
+  opacity: 0.8;
+  text-align: center;
 }
 
 /* #todo-body {
