@@ -9,6 +9,9 @@ export class Quote {
     return `
     <p>${this.quote}</p>
     <p>${this.source}</p>
+    <i class="mdi mdi-eye">
+    <div><i>${this.author}</i></div>
+    </i>
     `
   }
 }
