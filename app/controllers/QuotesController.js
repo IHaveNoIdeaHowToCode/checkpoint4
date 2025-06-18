@@ -26,5 +26,6 @@ export class QuotesController {
 
     const quotes = AppState.quotes
     setHTML('quote', quotes.quoteTemplate)
+    setHTML('author-spot', quotes.authorTemplate)
   }
 }
